@@ -6,6 +6,6 @@ import "Omid.proto";
 message RootIdentityDocument {
   OmidVersion omid_version = 1;
   CryptoAlgorithm crypto_algo = 2;
-  string private_key = 3;
+  string encrypted_private_key = 3;
   string description = 4;
 }

@@ -1,0 +1,16 @@
+@startuml
+
+actor "User" as user
+participant "Identity Manager" as im
+
+user -> im: Create Identity
+im -> user: Options for Identity create
+user -> im: Hierarchical deterministic key derivation
+im -> user: seed
+im -> user: requests a description
+user -> im: provides description
+im -> user: request password
+user -> im: provides password
+im -> im: create document and certificate
+
+@enduml

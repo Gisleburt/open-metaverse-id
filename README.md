@@ -4,6 +4,9 @@ Open Metaverse Id
 Open Metaverse Id (OMID) is a simple, platform independent, method of identifying people in the
 metaverse.
 
+> This is primarily a thought experiment, more work needs to be done to turn it into a
+> specification. I would love to work on this further with others.
+
 Contents
 --------
 
@@ -108,6 +111,20 @@ prove the Identity of a user who holds the Private Document
 
 The method of identifying a user is simply the Public Key.
 
+The only supported cryptographic algorithm now is Elliptic Curve. While there are pros and cons to
+ECC, most blockchains (including Bitcoin, Etherium, Monero, and Solana to name a few) use ECC
+private keys in their wallets. This means that your Open Metaverse Id can be the same as your
+blockchain public key, allowing you to trade NFTs on the most popular NFT Blockchains.
+
+The Identity Manager produces two files, the Private Document and the Public Certificate. The
+Private Key in the Private Document must be encrypted at rest, so the user should be asked for a
+password to encrypt it. The metadata does not need to be encrypted. A key derivation algorithm can
+be used, but the seed must be of sufficiently high entropy to minimise key collision.
+
+> One concern here is that ECC is _slightly_ more susceptible to Shor's algorithm than RSA, however
+> the difference is not sufficient to warrant the use of RSA over ECC. However, the specification
+> leaves room for adding newer cryptographic algorithms later.
+
 ### Root Identity
 
 This is a users identity and is formed of two parts.
@@ -155,11 +172,38 @@ creates a signing request for the Root Identity.
 
 Example Usage
 -------------
+
+In the examples below, we will use an Identity Manager on a mobile phone. The Identity Manager does
+not need to be on the same device as the device you're interacting with the metaverse on, and we can
+use QR codes to simplify some interactions.
+
+> These are examples only. More work needs to be done to turn this into a specification. 
+
 ### Creating a Root Identity
+
+1. The User asks the Identity Manager to create an Identity.
+2. The Identity Manager gives the user a choice of how to create the key
+3. The User chooses hierarchical deterministic key derivation so that the derived Identity will be
+   compatible with blockchains.
+4. The Identity Manager provides the user with the seed and requests a description
+5. The user provides the description, and the Identity Manager produces the Private Document and the
+   Public Key.
+
+![Create Root Identity](1.create-root-identity.svg)
 
 ### Using a Root Identity to authenticate with a Platform
 
-### Using a Root Identity to authenticate with a Application directly
+1. A User logs into the Platform as usual 
+2. The User uploads their Public Certificate
+3. The Platform/Service challenges the Certificate using a QR code
+4. The User scans the QR code with the Identity Manager which answers the challenge
+
+After this, the platform can safely use the Identity to authenticate the user in the future simply
+by providing another QR code challenge for the Identity Manager to scan.
+
+![Authenticate with Platform](2.authenticate-with-platform.svg)
+
+### Using a Root Identity to authenticate with an Application directly
 
 ### Creating an Intermediate Identity for use on a device
 

@@ -1,0 +1,14 @@
+@startuml
+
+actor "User" as user
+participant "Identity Manager" as im
+participant Platform as plat
+
+im -> user: Get Public Certificate
+user <--> plat: Normal Login Process
+user -> plat: Provide Public Certificate
+plat -> user: Show QR Challenge
+user -> im: Scan QR Challenge
+im -> plat: Answer Challenge
+
+@enduml
