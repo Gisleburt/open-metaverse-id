@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+enum CryptoAlgorithm {
+  ECDSA = 0;
+}
+
+enum SignatureAlgorithm {
+  SHA256 = 0;
+}
+
+message Signature {
+  int32 omid_version = 1;
+  SignatureAlgorithm signature_algo = 2;
+  string public_key = 3;
+  repeated uint32 signature = 4;
+}
+
+// Self signatures are for things that already include the omid_version and public_key
+message SelfSignature {
+  SignatureAlgorithm signature_algo = 2;
+  repeated uint32 signature = 4;
+}

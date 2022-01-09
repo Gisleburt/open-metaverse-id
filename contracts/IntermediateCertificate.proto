@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "Cryptography.proto";
+import "Omid.proto";
+
+message IntermediateIdentityCore {
+  OmidVersion omid_version = 1;
+  CryptoAlgorithm crypto_algo = 2;
+  string public_key = 3;
+  int64 not_before = 4;
+  int64 not_after = 5;
+  SelfSignature self_signature = 6;
+}
+
+message IntermediateIdentityWithIntermediarySignature {
+  IntermediateIdentityCore certificate = 1;
+  Signature intermediate_signature = 2;
+}
+
+message IntermediateIdentityCertificate {
+  IntermediateIdentityWithIntermediarySignature certificate = 1;
+  Signature authorising_signature = 2;
+}
+
