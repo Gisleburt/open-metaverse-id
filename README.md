@@ -7,21 +7,24 @@ metaverse.
 Contents
 --------
 
-1. Abstract
-3. Features 
-2. Terminology
-4. Explanation
-   1. Root Identity
-   2. Intermediate Identity
-5. Example Usage
-    1. Creating a Root Identity
-    2. Using a Root Identity to authenticate with a Platform
-    3. Using a Root Identity to authenticate with a Application directly
-    4. Creating an Intermediate Identity for use on a device
-    5. Validation an Intermediate Certificate with a service
-    6. Intermediate identity revocation
-    7. Root Identity revocation
-6. Frequently Asked Questions
+1. [Abstract](#abstract)
+2. [Features](#features) 
+3. [Terminology](#terminology)
+   1. [Participants](#participants)
+   2. [Components](#components)
+4. [Explanation](#explanation)
+   1. [Root Identity](#root-identity)
+   2. [Intermediate Identity](#intermediate-identity)
+5. [Example Usage](#example-usage)
+    1. [Creating a Root Identity](#creating-a-root-identity)
+    2. [Using a Root Identity to authenticate with a Platform](#using-a-root-identity-to-authenticate-with-a-platform)
+    3. [Using a Root Identity to authenticate with a Application directly](#using-a-root-identity-to-authenticate-with-a-application-directly)
+    4. [Creating an Intermediate Identity for use on a device](#creating-an-intermediate-identity-for-use-on-a-device)
+    5. [Validation an Intermediate Certificate with a service](#validation-an-intermediate-certificate-with-a-service)
+    6. [Intermediate identity revocation](#intermediate-identity-revocation)
+    7. [Root Identity revocation](#root-identity-revocation)
+6. [Frequently Asked Questions](#frequently-asked-questions)
+    1. [Why does the user sign the platforms certificate and not the other way around?](#why-does-the-user-sign-the-platforms-certificate-and-not-the-other-way-around)
 
 Abstract
 --------
@@ -76,6 +79,7 @@ Terminology
   to a user's Identity, for example a stand-alone device such as a Quest or Pico Neo 
   
 ### Components
+
 - **Identity:** A user's identity is, at its core, a asymmetric cryptographic keypair. Platforms and
   Services store the Public Key, and can confirm the users identity by challenging the private key.
   A user proves their identity answering the challenge.
