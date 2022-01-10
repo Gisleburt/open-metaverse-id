@@ -1,0 +1,15 @@
+@startuml
+
+actor "User" as user
+participant "Identity Manager" as im
+participant Platform as plat
+participant Service as serv
+
+user -> plat: Request access to Service
+plat <--> serv: Handshake
+plat -> serv: Provide Public Certificate
+serv -> user: Show QR Challenge
+user -> im: Scan QR Challenge
+im -> serv: Answer Challenge
+
+@enduml

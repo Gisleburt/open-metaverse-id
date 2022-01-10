@@ -21,13 +21,15 @@ Contents
 5. [Example Usage](#example-usage)
     1. [Creating a Root Identity](#creating-a-root-identity)
     2. [Using a Root Identity to authenticate with a Platform](#using-a-root-identity-to-authenticate-with-a-platform)
-    3. [Using a Root Identity to authenticate with a Application directly](#using-a-root-identity-to-authenticate-with-a-application-directly)
+    3. [Using a Root Identity to authenticate with a Service directly](#using-a-root-identity-to-authenticate-with-a-service-directly)
+    3. [Using a Root Identity to authenticate with a Service via a Platform](#using-a-root-identity-to-authenticate-with-a-service-via-a-platform)
     4. [Creating an Intermediate Identity for use on a device](#creating-an-intermediate-identity-for-use-on-a-device)
     5. [Validation an Intermediate Certificate with a service](#validation-an-intermediate-certificate-with-a-service)
     6. [Intermediate identity revocation](#intermediate-identity-revocation)
     7. [Root Identity revocation](#root-identity-revocation)
 6. [Frequently Asked Questions](#frequently-asked-questions)
     1. [Why does the user sign the platforms certificate and not the other way around?](#why-does-the-user-sign-the-platforms-certificate-and-not-the-other-way-around)
+7. [Unanswered Questions](#unanswered-questions)
 
 Abstract
 --------
@@ -195,7 +197,7 @@ use QR codes to simplify some interactions.
 
 1. A User logs into the Platform as usual 
 2. The User uploads their Public Certificate
-3. The Platform/Service challenges the Certificate using a QR code
+3. The Service challenges the Certificate using a QR code
 4. The User scans the QR code with the Identity Manager which answers the challenge
 
 After this, the platform can safely use the Identity to authenticate the user in the future simply
@@ -203,9 +205,47 @@ by providing another QR code challenge for the Identity Manager to scan.
 
 ![Authenticate with Platform](2.authenticate-with-platform.svg)
 
-### Using a Root Identity to authenticate with an Application directly
+### Using a Root Identity to authenticate with a Service directly
+
+The above method would also work for accessing a Service directly, if a Service wishes to provide
+this facility.
+
+If the Service does not require any knowledge of the user beyond whether they are a returning
+visitor, then all the service needs is the public key, and to provide a challenge for that key
+on a return visit.
+
+![Authenticate with Service directly](3.authenticate-with-service-direct.svg)
+
+### Using a Root Identity to authenticate with a Service via a Platform
+
+1. A User logs into the Platform they've already authenticated with as above
+2. The user tells the Platform which Service they would like to access
+3. The Platform performs a handshake (the specifics of which are up to the Platform and Service)
+4. The Platform gives the Service the users Public Certificate
+5. The Service provides a challenge to the User
+6. The user answers the challenge to log in to the service
+
+![Authenticate with Service via Platform](4.authenticate-with-service-via-platform.svg)
 
 ### Creating an Intermediate Identity for use on a device
+
+In the above examples, it's clear that having to authenticate with your mobile phone every time you
+want to access a service is extremely inconvenient. This is where Intermediate Identities help.
+
+For example, lets take the Meta Quest 2, which is a completely standalone platform. Using the above
+you'd have to request access in the headset, then come out of the headset and try to scan a QR
+code... through the lens?
+
+Instead, the Quest can create an Intermediate Identity, that you authorise to act on your behalf.
+
+1. The User requests the Device creates a new Intermediate Identity, specifying how long the
+   Identity should last 
+2. The Device creates an Intermediate Identity
+3. The Device sends the Public Certificate to the Platform
+4. The Platform signs the Public Certificate and sends it to the User. This can be done out of band,
+   for example Meta could show the user with a QR code via their Facebook account.
+5. The User scans the QR code with their Identity Manager, checks the details of the Identity
+   being generate, and if it all looks OK, then approves it. 
 
 ### Validation an Intermediate Certificate with a service
 
@@ -223,3 +263,14 @@ confirm they are the platform that minted the Intermediate Identity. Services sh
 Intermediate Identities from platforms they trust. The user is the final authority on whether the
 Intermediate Identity may act on their behalf, and they should only authorise Identities minted by
 platforms they trust.
+
+Unanswered Questions
+--------------------
+
+- We could tie identities to more tangible identities such as (salted and hashed) email addresses,
+  but this adds extra complication without adding much functionality (if any) for the user. Are
+  there any benefits I might have missed to doing this?
+  
+- Do we have an ethical responsibility to mitigate abuse? Is it possible to mitigate abuse without
+  infringing on the freedoms of people who might be at higher risk of abuse (think journalists in
+  totalitarian ?
