@@ -1,0 +1,18 @@
+@startuml
+
+actor "User" as user
+participant "Identity Manager" as im
+participant Device as dev
+participant Platform as plat
+
+
+user -> dev: Request create Intermediate Identity
+dev -> dev ++: Create Private Document and Public Key
+dev -> plat: Request signing of Public Key
+plat -> plat: Sign Public Key
+plat -> user: Show QR Challenge
+user -> im: Scan QR Challenge
+im -> plat: Answer Challenge
+plat -> dev --: Return completed Public Certificate
+
+@enduml

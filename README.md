@@ -191,7 +191,7 @@ use QR codes to simplify some interactions.
 5. The user provides the description, and the Identity Manager produces the Private Document and the
    Public Key.
 
-![Create Root Identity](1.create-root-identity.svg)
+![Create Root Identity](sequence_diagrams/examples/1.create-root-identity.svg)
 
 ### Using a Root Identity to authenticate with a Platform
 
@@ -203,7 +203,7 @@ use QR codes to simplify some interactions.
 After this, the platform can safely use the Identity to authenticate the user in the future simply
 by providing another QR code challenge for the Identity Manager to scan.
 
-![Authenticate with Platform](2.authenticate-with-platform.svg)
+![Authenticate with Platform](sequence_diagrams/examples/2.authenticate-with-platform.svg)
 
 ### Using a Root Identity to authenticate with a Service directly
 
@@ -214,7 +214,7 @@ If the Service does not require any knowledge of the user beyond whether they ar
 visitor, then all the service needs is the public key, and to provide a challenge for that key
 on a return visit.
 
-![Authenticate with Service directly](3.authenticate-with-service-direct.svg)
+![Authenticate with Service directly](sequence_diagrams/examples/3.authenticate-with-service-direct.svg)
 
 ### Using a Root Identity to authenticate with a Service via a Platform
 
@@ -225,7 +225,7 @@ on a return visit.
 5. The Service provides a challenge to the User
 6. The user answers the challenge to log in to the service
 
-![Authenticate with Service via Platform](4.authenticate-with-service-via-platform.svg)
+![Authenticate with Service via Platform](sequence_diagrams/examples/4.authenticate-with-service-via-platform.svg)
 
 ### Creating an Intermediate Identity for use on a device
 

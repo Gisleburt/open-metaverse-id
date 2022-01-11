@@ -8,7 +8,8 @@ install:
 
 
 build: \
-  1.create-root-identity.svg \
-  2.authenticate-with-platform.svg \
-  3.authenticate-with-service-direct.svg \
-  4.authenticate-with-service-via-platform.svg
+  sequence_diagrams/examples/1.create-root-identity.svg \
+  sequence_diagrams/examples/2.authenticate-with-platform.svg \
+  sequence_diagrams/examples/3.authenticate-with-service-direct.svg \
+  sequence_diagrams/examples/4.authenticate-with-service-via-platform.svg \
+  sequence_diagrams/examples/5.create-intermediate-identity.svg
