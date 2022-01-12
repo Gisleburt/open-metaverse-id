@@ -1,0 +1,33 @@
+import "Cryptography.proto";
+import "Omid.proto";
+
+message UnsignedIntermediateIdentityCore {
+  required OmidVersion omid_version = 1;
+  required CryptoAlgorithm crypto_algo = 2;
+  required string public_key = 3;
+  required int64 not_before = 4;
+  required int64 not_after = 5;
+}
+
+message IntermediateIdentityCore {
+  required UnsignedIntermediateIdentityCore unsigned_intermediate_identity_core = 1;
+  required SelfSignature self_signature = 2;
+}
+
+message IntermediateIdentityWithIntermediarySignature {
+  required IntermediateIdentityCore certificate = 1;
+  required Signature intermediate_signature = 2;
+}
+
+message IntermediateIdentityCertificate {
+  required IntermediateIdentityWithIntermediarySignature certificate = 1;
+  required Signature authorising_signature = 2;
+}
+
+message RootIdentityDocument {
+  required OmidVersion omid_version = 1;
+  required CryptoAlgorithm crypto_algo = 2;
+  required string encrypted_private_key = 3;
+  required string description = 4;
+  required string identity = 5;
+}

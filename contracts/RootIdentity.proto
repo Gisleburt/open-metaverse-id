@@ -1,0 +1,22 @@
+import "Cryptography.proto";
+import "Omid.proto";
+
+message RootIdentityCertificate {
+  required OmidVersion omid_version = 1;
+  required CryptoAlgorithm crypto_algo = 2;
+  required string public_key = 3;
+  required int64 not_before = 4;
+  optional int64 not_after = 5; // optional
+}
+
+message SignedRootIdentityCertificate {
+  required RootIdentityCertificate root_identity_certificate = 1;
+  required SelfSignature self_signature = 2;
+}
+
+message RootIdentityDocument {
+  required OmidVersion omid_version = 1;
+  required CryptoAlgorithm crypto_algo = 2;
+  required string encrypted_private_key = 3;
+  required string description = 4;
+}
