@@ -247,11 +247,15 @@ Instead, the Quest can create an Intermediate Identity, that you authorise to ac
 5. The User scans the QR code with their Identity Manager, checks the details of the Identity
    being generate, and if it all looks OK, then approves it. 
 
+![Authenticate with Service via Platform](sequence_diagrams/examples/5.create-intermediate-identity.svg)
+   
 ### Validation an Intermediate Certificate with a service
 
 ### Intermediate identity revocation
 
 ### Root Identity revocation
+
+
 
 Frequently Asked Questions
 --------------------------

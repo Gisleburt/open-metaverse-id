@@ -12,7 +12,9 @@ dev -> plat: Request signing of Public Key
 plat -> plat: Sign Public Key
 plat -> user: Show QR Challenge
 user -> im: Scan QR Challenge
-im -> plat: Answer Challenge
+im -> user: Show Certificate details
+user -> im: Confirm details
+im -> plat: Provide final signature
 plat -> dev --: Return completed Public Certificate
 
 @enduml
