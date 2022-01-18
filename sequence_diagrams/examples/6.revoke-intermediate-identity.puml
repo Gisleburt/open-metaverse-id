@@ -1,0 +1,30 @@
+@startuml
+
+actor "User" as user
+participant "Identity Manager" as im
+participant Platform as plat
+
+== Using Root Identity ==
+
+
+user -> plat: Request login via certificate
+note left
+    This method is less likely to be
+    used as the user may have lost
+    access to the root certificate
+end note
+plat -> user: Show QR Challenge
+user -> im: Scan QR Challenge
+im -> plat: Answer Challenge
+user -> plat: Get list of Intermediate certificates
+plat -> user: Show all current intermediate certificates
+user -> plat: User requests Intermediate Certificate be deleted
+
+== Through normal login process ==
+
+user <--> plat: Normal Login Process
+user -> plat: Get list of Intermediate certificates
+plat -> user: Show all current intermediate certificates
+user -> plat: User requests Intermediate Certificate be deleted
+
+@enduml

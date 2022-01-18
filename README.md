@@ -247,11 +247,20 @@ Instead, the Quest can create an Intermediate Identity, that you authorise to ac
 5. The User scans the QR code with their Identity Manager, checks the details of the Identity
    being generate, and if it all looks OK, then approves it. 
 
-![Authenticate with Service via Platform](sequence_diagrams/examples/5.create-intermediate-identity.svg)
+![Create Intermediate Identity](sequence_diagrams/examples/5.create-intermediate-identity.svg)
    
+### Intermediate identity revocation
+
+Devices can be lost or stolen, so its important that Intermediate Identities can be revoked,
+preventing access with that Identity. Rather than keep a list of revoked certificates, Platforms
+must keep track of active ones. By doing this, the only thing required to revoke an intermediate
+token is to delete the Platforms knowledge of it. To do this, the user must authenticate with the
+platform and request its deletion
+
+![Revoke Intermediate Identity](sequence_diagrams/examples/6.revoke-intermediate-identity.svg)
+
 ### Validation an Intermediate Certificate with a service
 
-### Intermediate identity revocation
 
 ### Root Identity revocation
 
@@ -276,5 +285,8 @@ Unanswered Questions
   there any benefits I might have missed to doing this?
   
 - Do we have an ethical responsibility to mitigate abuse? Is it possible to mitigate abuse without
-  infringing on the freedoms of people who might be at higher risk of abuse (think journalists in
-  totalitarian ?
+  infringing on the freedoms of people who might be at higher risk of abuse (think journalists under
+  totalitarian governments, protest groups trying to organise, etc)?
+
+- What else have I not thought about here?
+    - Crypto Wallet addresses use hashed public keys, not the key itself, why?
