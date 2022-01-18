@@ -24,7 +24,6 @@ Contents
     3. [Using a Root Identity to authenticate with a Service directly](#using-a-root-identity-to-authenticate-with-a-service-directly)
     3. [Using a Root Identity to authenticate with a Service via a Platform](#using-a-root-identity-to-authenticate-with-a-service-via-a-platform)
     4. [Creating an Intermediate Identity for use on a device](#creating-an-intermediate-identity-for-use-on-a-device)
-    5. [Validation an Intermediate Certificate with a service](#validation-an-intermediate-certificate-with-a-service)
     6. [Intermediate identity revocation](#intermediate-identity-revocation)
     7. [Root Identity revocation](#root-identity-revocation)
 6. [Frequently Asked Questions](#frequently-asked-questions)
@@ -258,9 +257,6 @@ token is to delete the Platforms knowledge of it. To do this, the user must auth
 platform and request its deletion
 
 ![Revoke Intermediate Identity](sequence_diagrams/examples/6.revoke-intermediate-identity.svg)
-
-### Validation an Intermediate Certificate with a service
-
 
 ### Root Identity revocation
 
