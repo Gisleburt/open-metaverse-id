@@ -12,4 +12,12 @@ serv -> user: Show QR Challenge
 user -> im: Scan QR Challenge
 im -> serv: Answer Challenge
 
+== On subsequent authentication ==
+
+user -> serv: Request Access
+serv -> user: Show QR Challenge
+user -> im: Scan QR Challenge
+im -> serv: Answer Challenge
+serv -> plat: Check for revocation
+plat -> serv: Provides revocation status
 @enduml
