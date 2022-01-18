@@ -28,7 +28,8 @@ Contents
     7. [Root Identity revocation](#root-identity-revocation)
 6. [Frequently Asked Questions](#frequently-asked-questions)
     1. [Why does the user sign the platforms certificate and not the other way around?](#why-does-the-user-sign-the-platforms-certificate-and-not-the-other-way-around)
-7. [Unanswered Questions](#unanswered-questions)
+7. [Alternatives](#alternatives)
+8. [Unanswered Questions](#unanswered-questions)
 
 Abstract
 --------
@@ -277,12 +278,33 @@ Intermediate Identities from platforms they trust. The user is the final authori
 Intermediate Identity may act on their behalf, and they should only authorise Identities minted by
 platforms they trust.
 
+Alternatives
+------------
+
+### Verifiable Identities
+
+A similar system using ECDSA based Identites but with the inclusion of something like an email
+address would add more trust but reduce anonymity.
+
+Using an email address, Platforms could verify the Identity (by emailing the User). Their signatures
+could then be added to the Root Certificate.
+
+Services wanting to validate the authenticity of an Identity could look for a trusted Platforms
+signature. While anyone could add or remove signatures to a certificate a Service would only have to
+look for signatures it trusted, and if they are not present, reject the identity. The service would
+then hold on to the original certificate so that on subsequent authentication attempts, they could
+request the revocation status from the Platforms that were listed during that first exchange.
+
+If multiple trusted Platforms are listed on the certificate, all listed Platforms should be asked
+for the revocation status and any Platform responding that the certificate has been revoked must
+be enough to deem the certificate invalid.
+
+The downside to this is that it puts a lot of power into the hands of Platforms. A Platform (or
+perhaps a malevolent employee at the Platform) could revoke an Identiy without the users permission,
+effectively preventing that user from accessing anything tied to their Metaverse Identity.
+
 Unanswered Questions
 --------------------
-
-- We could tie identities to more tangible identities such as (salted and hashed) email addresses,
-  but this adds extra complication without adding much functionality (if any) for the user. Are
-  there any benefits I might have missed to doing this?
   
 - Do we have an ethical responsibility to mitigate abuse? Is it possible to mitigate abuse without
   infringing on the freedoms of people who might be at higher risk of abuse (think journalists under
