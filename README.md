@@ -260,7 +260,11 @@ platform and request its deletion
 
 ### Root Identity revocation
 
+Due to the way that Identities are anonymous, there is no way to revoke an Root Identity. This is
+addressed in the [alternatives](#alternatives) section.
 
+The user can tell platforms to no longer trust the Root Identity, however this is not a complete
+revocation.
 
 Frequently Asked Questions
 --------------------------
