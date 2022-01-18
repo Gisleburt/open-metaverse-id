@@ -7,6 +7,7 @@ message RootIdentityCertificate {
   required string public_key = 3;
   required int64 not_before = 4;
   optional int64 not_after = 5; // optional
+  required string description = 6;
 }
 
 message SignedRootIdentityCertificate {

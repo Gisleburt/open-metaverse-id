@@ -7,6 +7,7 @@ message UnsignedIntermediateIdentityCore {
   required string public_key = 3;
   required int64 not_before = 4;
   required int64 not_after = 5;
+  required string description = 6;
 }
 
 message IntermediateIdentityCore {
