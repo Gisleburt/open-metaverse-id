@@ -1,0 +1,15 @@
+{
+  "name": "open-meta-id-example",
+  "version": "0.1.0",
+  "description": "An example of how to consume the open-meta-id library",
+  "main": "index.js",
+  "repository": "https://github.com/gisleburt/open-metaverse-id",
+  "author": "Daniel Mason <daniel@danielmason.com>",
+  "license": "MIT",
+  "scripts": {
+    "create-root-certificate": "node examples/create-root-certificate.js"
+  },
+  "dependencies": {
+    "ffi-napi": "^4.0.3"
+  }
+}
