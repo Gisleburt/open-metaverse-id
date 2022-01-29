@@ -38,8 +38,9 @@ At the time of writing, "metaverse" is _just_ a buzzword, one that means differe
 different people. It is not something that exists, but is an idea of an interconnected future. A
 common theme in these ideas though is that a user can traverse different services within the
 metaverse and keep the same identity as they move from place to place. In its simplest form, this
-could mean that your avatar (your representation in the metaverse) might remain the same as you move
-from your virtual office to your favourite games.
+could mean that your identity (your representation in the metaverse) could remain the same as you
+move from your virtual office to your favourite games. This would allow you to meet up with your
+colleagues for some after work socialising.
 
 Some form of Metaverse seems inevitability. Not as a new separate thing, but as an extension to
 existing technologies like the Internet. There are many opportunities that the Metaverse will unlock
@@ -261,7 +262,7 @@ platform and request its deletion
 
 ### Root Identity revocation
 
-Due to the way that Identities are anonymous, there is no way to revoke an Root Identity. This is
+Due to the way that Identities are anonymous, there is no way to revoke a Root Identity. This is
 addressed in the [alternatives](#alternatives) section.
 
 The user can tell platforms to no longer trust the Root Identity, however this is not a complete
