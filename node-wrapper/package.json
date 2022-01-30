@@ -1,5 +1,5 @@
 {
-  "name": "open-meta-id-example",
+  "name": "open-meta-id",
   "version": "0.1.0",
   "description": "An example of how to consume the open-meta-id library",
   "main": "index.js",
@@ -10,6 +10,7 @@
     "create-root-certificate": "node examples/create-root-certificate.js"
   },
   "dependencies": {
-    "ffi-napi": "^4.0.3"
+    "ffi-napi": "^4.0.3",
+    "@types/ffi-napi": "^4.0.5"
   }
 }
