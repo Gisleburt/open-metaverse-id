@@ -12,7 +12,7 @@
   "license": "MIT",
   "scripts": {
     "create-root-certificate": "node examples/create-root-certificate.js",
-    "build": "tsc && (cd ../rust-lib && cargo build --release) && cp ../rust-lib/target/release/libopen_meta_id.dylib dist"
+    "build": "tsc && (cd .. && make build-rust-dylib) && cp ../rust-dylib/target/release/libopen_meta_id_dylib.dylib dist/open_meta_id.dylib"
   },
   "dependencies": {
     "ffi-napi": "^4.0.3",

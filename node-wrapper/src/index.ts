@@ -1,16 +1,24 @@
 import { Library } from 'ffi-napi';
+import path from 'path';
 
 class OpenMetaId {
   private lib;
 
   constructor() {
-    this.lib = Library('libopen_meta_id', {
+    const dylib = path.join(__dirname, 'open_meta_id.dylib');
+
+    let temp = Library(dylib, {
       create_root_identity: ['char *', []],
       free_root_identity: ['void', ['char *']],
     });
+
+    console.log(dylib, temp);
+
+    this.lib = temp;
   }
 
   createRootIdentity(): string {
+    console.log(this.lib)
       const identityPointer = this.lib.create_root_identity();
       try {
         return identityPointer.readCString();
