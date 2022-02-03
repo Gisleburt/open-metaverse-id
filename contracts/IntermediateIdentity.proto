@@ -1,5 +1,9 @@
+syntax = "proto2";
+
 import "Cryptography.proto";
-import "Omid.proto";
+import "OpenMetaId.proto";
+
+package OpenMetaId;
 
 message UnsignedIntermediateIdentityCore {
   required OmidVersion omid_version = 1;

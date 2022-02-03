@@ -1,3 +1,6 @@
+syntax = "proto2";
+
+package OpenMetaId;
 
 enum CryptoAlgorithm {
   UNKNOWN_CRYPTO_ALGORITHM = 0; // This is an invalid value
