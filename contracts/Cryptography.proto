@@ -1,5 +1,7 @@
 syntax = "proto2";
 
+import "OpenMetaIdVersion.proto";
+
 package OpenMetaId;
 
 enum CryptoAlgorithm {
@@ -13,7 +15,7 @@ enum SignatureAlgorithm {
 }
 
 message Signature {
-  required int32 omid_version = 1;
+  required OmidVersion omid_version = 1;
   required SignatureAlgorithm signature_algo = 2;
   required string public_key = 3;
   repeated uint32 signature = 4;
