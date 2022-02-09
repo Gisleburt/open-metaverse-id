@@ -1,7 +1,7 @@
 syntax = "proto2";
 
 import "Cryptography.proto";
-import "OpenMetaId.proto";
+import "OpenMetaIdVersion.proto";
 
 package OpenMetaId;
 
@@ -29,7 +29,7 @@ message IntermediateIdentityCertificate {
   required Signature authorising_signature = 2;
 }
 
-message RootIdentityDocument {
+message IntermediateDocument {
   required OmidVersion omid_version = 1;
   required CryptoAlgorithm crypto_algo = 2;
   required string encrypted_private_key = 3;

@@ -1,7 +1,7 @@
 syntax = "proto2";
 
 import "Cryptography.proto";
-import "OpenMetaId.proto";
+import "OpenMetaIdVersion.proto";
 
 package OpenMetaId;
 

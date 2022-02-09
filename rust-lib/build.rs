@@ -5,7 +5,7 @@ fn main() {
         &[
             "../contracts/Cryptography.proto",
             "../contracts/IntermediateIdentity.proto",
-            "../contracts/OpenMetaId.proto",
+            "../contracts/OpenMetaIdVersion.proto",
             "../contracts/RootIdentity.proto",
         ],
         &["../contracts/"],
