@@ -1,5 +1,5 @@
+pub use crate::protobuf::OmidVersion;
 use konst::{primitive::parse_u32, result::unwrap_ctx};
-use crate::OmidVersion;
 
 #[derive(Copy, Clone)]
 struct RawOmidVersion<'a> {
@@ -27,6 +27,6 @@ impl<'a> From<RawOmidVersion<'a>> for OmidVersion {
     }
 }
 
-pub fn omid_version() -> OmidVersion {
+pub fn get_omid_version() -> OmidVersion {
     RAW_OMID_VERSION.into()
 }
