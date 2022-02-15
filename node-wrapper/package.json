@@ -1,0 +1,24 @@
+{
+  "name": "open-meta-id",
+  "version": "0.1.0",
+  "description": "An example of how to consume the open-meta-id library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "repository": "https://github.com/gisleburt/open-metaverse-id",
+  "author": "Daniel Mason <daniel@danielmason.com>",
+  "license": "MIT",
+  "scripts": {
+    "create-root-certificate": "node examples/create-root-certificate.js",
+    "build": "tsc && (cd .. && make build-rust-dylib) && cp ../rust-dylib/target/release/libopen_meta_id_dylib.dylib dist/open_meta_id.dylib"
+  },
+  "dependencies": {
+    "ffi-napi": "^4.0.3",
+    "@types/ffi-napi": "^4.0.5"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}

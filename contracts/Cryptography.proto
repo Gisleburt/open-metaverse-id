@@ -1,3 +1,8 @@
+syntax = "proto2";
+
+import "OpenMetaIdVersion.proto";
+
+package OpenMetaId;
 
 enum CryptoAlgorithm {
   UNKNOWN_CRYPTO_ALGORITHM = 0; // This is an invalid value
@@ -10,7 +15,7 @@ enum SignatureAlgorithm {
 }
 
 message Signature {
-  required int32 omid_version = 1;
+  required OmidVersion omid_version = 1;
   required SignatureAlgorithm signature_algo = 2;
   required string public_key = 3;
   repeated uint32 signature = 4;

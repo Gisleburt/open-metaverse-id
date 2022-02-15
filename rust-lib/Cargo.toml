@@ -1,0 +1,11 @@
+[package]
+name = "open-meta-id"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+prost = "0.9.0"
+konst = "0.2.13"
+
+[build-dependencies]
+prost-build = { version = "0.6" }

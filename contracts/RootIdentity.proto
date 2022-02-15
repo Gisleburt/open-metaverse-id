@@ -1,5 +1,9 @@
+syntax = "proto2";
+
 import "Cryptography.proto";
-import "Omid.proto";
+import "OpenMetaIdVersion.proto";
+
+package OpenMetaId;
 
 message RootIdentityCertificate {
   required OmidVersion omid_version = 1;
