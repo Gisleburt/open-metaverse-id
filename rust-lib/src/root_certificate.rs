@@ -1,17 +1,20 @@
-pub use crate::protobuf::{
-    RootIdentityCertificate, RootIdentityDocument, SignedRootIdentityCertificate,
-};
+use crate::cryptography::asymmetric_crypto_alogrithm::AsymmetricCryptoAlgorithm;
+use crate::cryptography::self_signature::SelfSignature;
+use crate::omid_version::OmidVersion;
 
-pub fn create_root_identity() -> RootIdentityDocument {
-    todo!()
+pub struct RootIdentityCertificate {
+    pub omid_version: OmidVersion,
+    pub asymmetric_crypto_algo: AsymmetricCryptoAlgorithm,
+    pub public_key: Vec<u8>,
+    pub not_before: i64,
+    pub not_after: i64,
+    pub description: String,
 }
 
-pub fn create_root_certificate(
-    _root_document: RootIdentityDocument,
-) -> SignedRootIdentityCertificate {
-    todo!()
+pub struct SignedRootIdentityCertificate {
+    pub root_identity_certificate: RootIdentityCertificate,
+    pub self_signature: SelfSignature,
 }
 
-pub fn verify_root_certificate(_root_certificate: RootIdentityCertificate) -> bool {
-    todo!()
-}
+#[cfg(test)]
+mod tests {}

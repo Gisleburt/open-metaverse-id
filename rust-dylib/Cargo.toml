@@ -11,3 +11,7 @@ crate-type = ["dylib"]
 [dependencies]
 libc = "0.2"
 open-meta-id = { path = "../rust-lib", version = "0.1.0" }
+prost = "0.9.0"
+
+[build-dependencies]
+prost-build = { version = "0.6" }

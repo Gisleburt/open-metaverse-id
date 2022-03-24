@@ -3,6 +3,8 @@ use libc::c_char;
 
 use std::ffi::CString;
 
+mod protobuf;
+
 pub fn free_string(s: *mut c_char) {
     if s.is_null() {
         return;

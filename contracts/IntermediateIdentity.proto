@@ -7,8 +7,8 @@ package OpenMetaId;
 
 message UnsignedIntermediateIdentityCore {
   required OmidVersion omid_version = 1;
-  required CryptoAlgorithm crypto_algo = 2;
-  required string public_key = 3;
+  required AsymmetricCryptoAlgorithm crypto_algo = 2;
+  required bytes public_key = 3;
   required int64 not_before = 4;
   required int64 not_after = 5;
   required string description = 6;
@@ -31,8 +31,9 @@ message IntermediateIdentityCertificate {
 
 message IntermediateDocument {
   required OmidVersion omid_version = 1;
-  required CryptoAlgorithm crypto_algo = 2;
-  required string encrypted_private_key = 3;
-  required string description = 4;
-  required string identity = 5;
+  required AsymmetricCryptoAlgorithm crypto_algo = 2;
+  required PasswordMetaData password_meta_data = 3;
+  required bytes encrypted_private_key = 4;
+  required string description = 5;
+  required string identity = 6;
 }

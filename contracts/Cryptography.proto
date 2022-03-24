@@ -4,25 +4,36 @@ import "OpenMetaIdVersion.proto";
 
 package OpenMetaId;
 
-enum CryptoAlgorithm {
-  UNKNOWN_CRYPTO_ALGORITHM = 0; // This is an invalid value
-  ECDSA = 1;
+enum SymmetricCryptoAlgorithm {
+  UNKNOWN_SYMMETRIC_CRYPTO_ALGORITHM = 0; // This is an invalid value
+  AES256 = 1;
+}
+
+enum AsymmetricCryptoAlgorithm {
+  UNKNOWN_ASYMMETRIC_CRYPTO_ALGORITHM = 0; // This is an invalid value
+  ECDH = 1;
 }
 
 enum SignatureAlgorithm {
   UNKNOWN_SIGNATURE_ALGORITHM = 0; // This is an invalid value
-  SHA256 = 1;
+  ECDSA = 1;
 }
 
 message Signature {
   required OmidVersion omid_version = 1;
   required SignatureAlgorithm signature_algo = 2;
-  required string public_key = 3;
-  repeated uint32 signature = 4;
+  required bytes public_key = 3;
+  required bytes signature = 4;
 }
 
 // Self signatures are for things that already include the omid_version and public_key
 message SelfSignature {
   required SignatureAlgorithm signature_algo = 1;
-  repeated uint32 signature = 2;
+  required bytes signature = 2;
+}
+
+message PasswordMetaData {
+  required SymmetricCryptoAlgorithm symmetric_crypto_algorithm = 1;
+  required bytes salt = 2;
+  required bytes nonce = 3;
 }
